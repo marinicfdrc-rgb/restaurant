@@ -913,6 +913,9 @@ body {
     }
   }
   @media (width >= 48rem) {
+    .md\:relative {
+      position: relative;
+    }
     .md\:block {
       display: block;
     }

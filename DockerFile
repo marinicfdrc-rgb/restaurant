@@ -1,0 +1,21 @@
+FROM php:8.3-apache
+
+RUN docker-php-ext-install pdo pdo_pgsql pgsql
+
+RUN a2enmod rewrite
+
+WORKDIR /var/www/html
+
+COPY . .
+
+RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
+    && php composer-setup.php \
+    && mv composer.phar /usr/local/bin/composer
+
+RUN composer install --no-dev --optimize-autoloader
+
+RUN chown -R www-data:www-data writable
+
+EXPOSE 80
+
+CMD ["apache2-foreground"]
