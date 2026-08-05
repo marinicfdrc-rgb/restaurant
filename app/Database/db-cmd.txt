@@ -1,0 +1,17 @@
+//for dev mode only
+ 
+ / migrate down
+ /    ↓
+ / migrate up
+
+php spark migrate:refresh
+
+//for pro mode 
+
+php spark migrate
+
+
+
+// run all seeder
+
+php spark migrate:refresh DatabaseSeeder
