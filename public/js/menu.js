@@ -7,11 +7,19 @@ buttons.forEach(button => {
 
         buttons.forEach(btn => {
 
-            btn.classList.remove("bg-(--primary)", "text-white");
+            btn.classList.remove("bg-blue-500", "text-white");
+
+            if (!btn.classList.contains("bg-blue-500")) {
+
+                btn.classList.add("border");
+
+            }
 
         });
 
-        button.classList.add("bg-(--primary)", "text-white");
+        button.classList.remove("border");
+
+        button.classList.add("bg-blue-500", "text-white");
 
         const category = button.dataset.category;
 

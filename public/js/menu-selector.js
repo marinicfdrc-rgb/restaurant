@@ -120,6 +120,18 @@ document.addEventListener("DOMContentLoaded", () => {
     button.addEventListener("click", () => {
       currentCategory = button.dataset.category ?? "all";
 
+      document.querySelectorAll(".menu-category").forEach((btn) => {
+        btn.classList.remove("bg-blue-500", "text-white");
+
+        if (!btn.classList.contains("bg-blue-500")) {
+          btn.classList.add("border");
+        }
+      });
+
+      button.classList.remove("border");
+
+      button.classList.add("bg-blue-500", "text-white");
+
       renderMenuSelector();
     });
   });
