@@ -26,10 +26,10 @@ class Database extends Config
      */
     public array $default = [
     'DSN'          => '',
-    'hostname'     => 'db.lqktfyucafjndwreqtxp.supabase.co',
-    'username'     => 'postgres',
-    'password'     => 'oEqS5wZwsr28XB2P',
-    'database'     => 'postgres',
+    'hostname'     => '',
+    'username'     => '',
+    'password'     => '',
+    'database'     => '',
     'DBDriver'     => 'Postgre',
     'DBPrefix'     => '',
     'pConnect'     => false,
@@ -42,14 +42,7 @@ class Database extends Config
     'strictOn'     => false,
     'failover'     => [],
     'port'         => 5432,
-    'numberNative' => false,
-    'foundRows'    => false,
-    'dateFormat'   => [
-        'date'     => 'Y-m-d',
-        'datetime' => 'Y-m-d H:i:s',
-        'time'     => 'H:i:s',
-    ],
-];
+    ];
 
     //    /**
     //     * Sample database connection for SQLite3.
@@ -191,14 +184,18 @@ class Database extends Config
     ];
 
     public function __construct()
-    {
-        parent::__construct();
+{
+    parent::__construct();
 
-        // Ensure that we always set the database group to 'tests' if
-        // we are currently running an automated test suite, so that
-        // we don't overwrite live data on accident.
-        if (ENVIRONMENT === 'testing') {
-            $this->defaultGroup = 'tests';
-        }
+    $this->default['hostname'] = getenv('DB_HOST') ?: 'localhost';
+    $this->default['username'] = getenv('DB_USER') ?: '';
+    $this->default['password'] = getenv('DB_PASSWORD') ?: '';
+    $this->default['database'] = getenv('DB_NAME') ?: '';
+    $this->default['DBDriver'] = getenv('DB_DRIVER') ?: 'Postgre';
+    $this->default['port'] = (int) (getenv('DB_PORT') ?: 5432);
+
+    if (ENVIRONMENT === 'testing') {
+        $this->defaultGroup = 'tests';
     }
+}
 }

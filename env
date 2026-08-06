@@ -62,8 +62,5 @@
 # session.driver = 'CodeIgniter\Session\Handlers\FileHandler'
 # session.savePath = null
 
-#--------------------------------------------------------------------
-# LOGGER
-#--------------------------------------------------------------------
 
 # logger.threshold = 4
