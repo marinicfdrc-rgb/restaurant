@@ -193,7 +193,7 @@ class Database extends Config
     $this->default['database'] = getenv('DB_NAME') ?: '';
     $this->default['DBDriver'] = getenv('DB_DRIVER') ?: 'Postgre';
     $this->default['port'] = (int) (getenv('DB_PORT') ?: 5432);
-
+  
     if (ENVIRONMENT === 'testing') {
         $this->defaultGroup = 'tests';
     }

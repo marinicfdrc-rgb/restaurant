@@ -26,7 +26,7 @@
     <!-- Mobile background image (hidden on desktop) -->
     <div
         class="absolute inset-0 bg-cover bg-center md:hidden blur-sm"
-        style="background-image: url('<?= base_url('uploads/menu/creme-brulee.webp') ?>');"
+        style="background-image: url('<?= base_url('uploads/menu/ratatouille.webp') ?>');"
     ></div>
 
     <!-- Linear gradient overlay -->
@@ -82,7 +82,7 @@
             <!-- Image column (hidden on mobile) -->
             <div class="max-md:hidden h-full">
                 <img
-                    src="<?= base_url('uploads/menu/glace-vanille.webp') ?>"
+                    src="<?= base_url('uploads/menu/ratatouille.webp') ?>"
                     class="rounded-2xl w-full h-full object-cover"
                     alt="Crème Brûlée"
                 >
